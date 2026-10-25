@@ -139,3 +139,14 @@
     display: none;
   }
 }
+
+/* Fade (desvanecer) nas bordas do carrossel de provas sociais */
+@utility carousel-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 2rem,
+    black calc(100% - 2rem),
+    transparent
+  );
+}
