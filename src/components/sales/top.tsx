@@ -23,7 +23,7 @@ export function SalesNav() {
       <div className="border-b border-border/50 bg-coral/10 py-1 px-3 text-center">
         <Container className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs font-medium text-coral">
           <span className="flex size-1.5 rounded-full bg-coral animate-pulse shrink-0" />
-          <span>🔥 Oferta termina em</span>
+          <span>Oferta termina em</span>
           <span className="rounded bg-coral px-1.5 py-0.5 font-mono text-[11px] sm:text-xs font-bold text-white tabular-nums">
             {countdown}
           </span>
@@ -36,21 +36,8 @@ export function SalesNav() {
           <span className="flex size-7 sm:size-8 items-center justify-center rounded-lg bg-marigold text-sm sm:text-base">
             🧱
           </span>
-          <span className="text-xs sm:text-sm font-semibold truncate max-w-[140px] xs:max-w-none">
+          <span className="text-xs sm:text-sm font-semibold truncate max-w-[160px] xs:max-w-none">
             Planilha de Obras
-          </span>
-        </a>
-
-        {/* Badge de escassez dentro da barra de navegação */}
-        <a
-          href="#planos"
-          className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-coral/30 bg-coral/5 px-2 py-0.5 sm:px-3 sm:py-1 text-[11px] sm:text-xs font-medium text-coral hover:bg-coral/10 transition-colors"
-        >
-          <span className="flex size-1.5 rounded-full bg-coral animate-pulse shrink-0" />
-          <span className="hidden xs:inline">🔥 Oferta termina em</span>
-          <span className="xs:hidden">🔥</span>
-          <span className="rounded bg-coral px-1 sm:px-1.5 py-0.5 font-mono text-[10px] sm:text-[11px] font-bold text-white tabular-nums">
-            {countdown}
           </span>
         </a>
 
