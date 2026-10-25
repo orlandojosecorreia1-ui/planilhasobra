@@ -221,7 +221,7 @@ export const CHATS: Chat[] = [
     avatar: "bg-vermillion/10 text-vermillion",
     bubbles: [
       { from: "them", text: "boa tarde, estou a construir minha casa e os pedreiros pediam material toda a semana", time: "16:10" },
-      { from: "me", text: "com as tabelas de rendimento agora sei exatamente quanto cimento e areia dar", time: "16:11" },
+      { from: "them", text: "com as tabelas de rendimento agora sei exatamente quanto cimento e areia dar", time: "16:11" },
       { from: "me", text: "boa Guilhermino! chega de gastar a mais 👏", time: "16:14" },
       { from: "them", text: "poupei quase 400 mil kz nas fundações só", time: "16:15" },
     ],

@@ -1,15 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Phone, MoreVertical } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Cta, Container, SectionHead } from "./bits";
 import { CHATS, PLANS, type Bubble, type Chat, type Plan } from "./data";
 
-function useCountdown(fromSeconds: number) {
-  const [left, setLeft] = useState(fromSeconds);
+const OFFER_SECONDS = 23 * 60;
+const DEADLINE_KEY = "oferta-relampago-deadline";
+
+/**
+ * Countdown da oferta relâmpago, persistido no localStorage: o prazo continua
+ * de onde parou entre visitas, em vez de recomeçar a cada refresh.
+ */
+export function useScarcityCountdown() {
+  const [left, setLeft] = useState(OFFER_SECONDS);
   useEffect(() => {
-    const id = window.setInterval(() => {
-      setLeft((value) => (value > 0 ? value - 1 : 0));
-    }, 1000);
+    let deadline = Number(window.localStorage.getItem(DEADLINE_KEY));
+    if (!Number.isFinite(deadline) || deadline <= Date.now()) {
+      deadline = Date.now() + OFFER_SECONDS * 1000;
+      window.localStorage.setItem(DEADLINE_KEY, String(deadline));
+    }
+    const tick = () => {
+      if (deadline <= Date.now()) {
+        deadline = Date.now() + OFFER_SECONDS * 1000;
+        window.localStorage.setItem(DEADLINE_KEY, String(deadline));
+      }
+      setLeft(Math.max(0, Math.round((deadline - Date.now()) / 1000)));
+    };
+    tick();
+    const id = window.setInterval(tick, 1000);
     return () => window.clearInterval(id);
   }, []);
   return left;
@@ -69,7 +87,7 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 export function Pricing() {
-  const left = useCountdown(23 * 60);
+  const left = useScarcityCountdown();
   return (
     <section id="planos" className="scroll-mt-20 py-16 md:py-24">
       <Container>
@@ -103,6 +121,25 @@ export function Pricing() {
         </p>
       </Container>
     </section>
+  );
+}
+
+export function ScarcityBar() {
+  const left = useScarcityCountdown();
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-card/95 shadow-nav backdrop-blur">
+      <Container className="flex items-center justify-between gap-3 py-2.5">
+        <p className="min-w-0 text-xs font-medium sm:text-sm">
+          <span aria-hidden="true">🔥</span> Oferta relâmpago termina em{" "}
+          <span className="rounded-md bg-ink px-2 py-0.5 font-semibold tabular-nums text-paper">
+            {mmss(left)}
+          </span>
+        </p>
+        <Cta href="#planos" size="sm" className="shrink-0">
+          garantir o desconto
+        </Cta>
+      </Container>
+    </div>
   );
 }
 
@@ -159,16 +196,69 @@ function ChatCard({ chat }: { chat: Chat }) {
   );
 }
 
+const CAROUSEL_STEP_MS = 4000;
+const CAROUSEL_RESUME_MS = 6000;
+
 export function Chats() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  /*
+   * Carrossel em auto-scroll suave, com as bordas a desvanecer (carousel-fade).
+   * Qualquer gesto do visitante pausa o avanço; retoma após alguns segundos.
+   */
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let paused = false;
+    let resumeTimer = 0;
+    const pauseWhileHovering = () => {
+      paused = true;
+      window.clearTimeout(resumeTimer);
+    };
+    const pauseFor = (ms: number) => {
+      paused = true;
+      window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(() => (paused = false), ms);
+    };
+    const id = window.setInterval(() => {
+      if (paused || document.hidden) return;
+      const card = track.querySelector<HTMLElement>("article");
+      const step = card ? card.offsetWidth + 16 : 360;
+      const max = track.scrollWidth - track.clientWidth;
+      if (max <= 0) return;
+      if (track.scrollLeft >= max - 4) {
+        track.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        track.scrollBy({ left: step, behavior: "smooth" });
+      }
+    }, CAROUSEL_STEP_MS);
+    track.addEventListener("pointerenter", pauseWhileHovering);
+    track.addEventListener("pointerleave", () => pauseFor(CAROUSEL_RESUME_MS));
+    track.addEventListener("pointerdown", () => pauseFor(CAROUSEL_RESUME_MS));
+    track.addEventListener("wheel", () => pauseFor(CAROUSEL_RESUME_MS), { passive: true });
+    return () => {
+      window.clearInterval(id);
+      window.clearTimeout(resumeTimer);
+      track.removeEventListener("pointerenter", pauseWhileHovering);
+      track.removeEventListener("pointerleave", pauseFor);
+      track.removeEventListener("pointerdown", pauseFor);
+      track.removeEventListener("wheel", pauseFor);
+    };
+  }, []);
+
   return (
     <section className="py-16 md:py-24">
       <Container>
         <SectionHead
           eyebrow="Conversas reais · WhatsApp"
           title="Quem já usa, não larga."
+          sub="As conversas passam sozinhas — ou arraste para ver ao seu ritmo."
         />
       </Container>
-      <div className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:px-6">
+      <div
+        ref={trackRef}
+        className="carousel-fade no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:px-6"
+      >
         {CHATS.map((chat) => (
           <ChatCard key={chat.name} chat={chat} />
         ))}
