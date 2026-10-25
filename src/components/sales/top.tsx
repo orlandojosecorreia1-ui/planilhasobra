@@ -1,4 +1,4 @@
-import mockup from "@/assets/planilha-mockup.png";
+import mockup from "@/assets/mockup-devices.png";
 import { Cta, Container, SectionHead } from "./bits";
 import { CHECKOUT_FOUNDACAO, HERO_CHECKS, STATS } from "./data";
 
@@ -86,20 +86,14 @@ export function Hero() {
           Entrega imediata · a partir de 4.997 Kz · vitalício
         </p>
 
-        <div className="relative mt-14 w-full max-w-[980px]">
-          <span className="absolute right-4 top-4 z-10 rounded-full bg-card px-3 py-1.5 text-xs font-medium text-foreground shadow-mockup md:right-6 md:top-6">
-            ✓ pronto para usar
-          </span>
+        <div className="mt-14 w-full max-w-[720px]">
           <img
             src={mockup}
             alt="Planilha de orçamento de obra aberta no computador e no telemóvel"
             className="w-full rounded-xl shadow-mockup"
-            width={1920}
-            height={1080}
+            width={523}
+            height={425}
           />
-          <span className="absolute bottom-4 left-4 rounded-full bg-marigold px-3 py-1.5 text-xs font-semibold text-ink md:bottom-6 md:left-6">
-            abre no telefone mesmo sem net
-          </span>
         </div>
       </Container>
     </section>
