@@ -42,10 +42,7 @@ export function SalesNav() {
         </a>
 
         <div className="flex items-center gap-2 shrink-0">
-          <Cta href="#planos" variant="ghost" size="sm" className="hidden sm:inline-flex">
-            Ver os planos
-          </Cta>
-          <Cta href={CHECKOUT_FOUNDACAO} size="sm" className="text-xs px-2.5 py-1.5 sm:text-sm sm:px-4 sm:py-2">
+          <Cta href="#planos" size="sm" className="text-xs px-3 py-1.5 sm:text-sm sm:px-4 sm:py-2">
             Comprar agora
           </Cta>
         </div>
