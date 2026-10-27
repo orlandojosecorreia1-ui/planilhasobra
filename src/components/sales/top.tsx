@@ -43,10 +43,10 @@ export function SalesNav() {
 
         <div className="flex items-center gap-2 shrink-0">
           <Cta href="#planos" variant="ghost" size="sm" className="hidden sm:inline-flex">
-            ver os planos
+            Ver os planos
           </Cta>
           <Cta href={CHECKOUT_FOUNDACAO} size="sm" className="text-xs px-2.5 py-1.5 sm:text-sm sm:px-4 sm:py-2">
-            comprar agora
+            Comprar agora
           </Cta>
         </div>
       </Container>
@@ -106,15 +106,15 @@ export function Hero() {
 
         <div className="mt-6 sm:mt-8 flex w-full max-w-xs sm:max-w-none sm:w-auto flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
           <Cta href={CHECKOUT_FOUNDACAO} size="lg" className="w-full sm:w-auto py-3.5 sm:py-4 text-center font-bold shadow-md active:scale-95">
-            quero a minha planilha agora
+            Quero a minha planilha agora
           </Cta>
           <Cta href="#inclui" variant="ghost" size="lg" className="w-full sm:w-auto text-center">
-            ver o que inclui →
+            Ver o que inclui →
           </Cta>
         </div>
 
         <p className="mt-3 sm:mt-4 text-[11px] sm:text-xs text-stone">
-          Entrega imediata · a partir de 4.997 Kz · vitalício
+          Entrega imediata · A partir de 4.997 Kz · Vitalício
         </p>
 
         <div className="mt-8 sm:mt-14 w-full max-w-[720px]">

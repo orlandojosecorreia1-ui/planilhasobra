@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check, Download, FileSpreadsheet, Smartphone, Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Container } from "./bits";
 import { SalesFooter } from "./close";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 const DOWNLOAD_FILE = "/downloads/planilha-de-obras.xlsx";
 const DOWNLOAD_NAME = "Planilha-de-Orcamento-de-Obra.xlsx";
@@ -12,37 +13,37 @@ const PASSOS = [
     step: "1",
     emoji: "📲",
     title: "Toque no botão de download",
-    sub: "o ficheiro começa a descarregar automaticamente no seu telemóvel.",
+    sub: "O ficheiro começa a descarregar automaticamente no seu telemóvel.",
   },
   {
     step: "2",
     emoji: "📂",
     title: "Abra o Gestor de Ficheiros",
-    sub: "a sua planilha já está disponível na pasta 'Downloads' / 'Transferências'.",
+    sub: "A sua planilha já está disponível na pasta 'Downloads' / 'Transferências'.",
   },
   {
     step: "3",
     emoji: "📊",
     title: "Abra e comece a orçar",
-    sub: "funciona no Excel Mobile, Google Sheets ou WPS Office — 100% offline.",
+    sub: "Funciona no Excel Mobile, Google Sheets ou WPS Office — 100% offline.",
   },
 ];
 
 const DECISAO = [
   {
     value: "0 Kz",
-    label: "mensalidades",
-    sub: "pagou uma única vez, o acesso é seu para sempre",
+    label: "Mensalidades",
+    sub: "Pagou uma única vez, o acesso é seu para sempre",
   },
   {
     value: "100%",
-    label: "offline no telemóvel",
-    sub: "funciona no canteiro em Angola mesmo sem rede de dados",
+    label: "Offline no telemóvel",
+    sub: "Funciona no canteiro em Angola mesmo sem rede de dados",
   },
   {
     value: "Hoje",
-    label: "no seu aparelho",
-    sub: "sem esperar dias — já tem a ferramenta nas suas mãos",
+    label: "No seu aparelho",
+    sub: "Sem esperar dias — já tem a ferramenta nas suas mãos",
   },
 ];
 
@@ -84,7 +85,7 @@ export function ThanksNav() {
           <span className="text-xs sm:text-sm font-semibold">Planilha de Obras · Angola</span>
         </div>
         <span className="rounded-full bg-secondary px-2.5 py-1 text-[11px] font-semibold text-signal">
-          compra aprovada ✓
+          Compra aprovada ✓
         </span>
       </Container>
     </header>
@@ -93,6 +94,10 @@ export function ThanksNav() {
 
 export function ThanksPage() {
   const [downloaded, setDownloaded] = useState(false);
+
+  useEffect(() => {
+    trackMetaEvent("Purchase", { currency: "AOA", value: 4997 });
+  }, []);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">

@@ -104,7 +104,7 @@ export function Pricing() {
             o tempo terminar.
           </p>
           <div className="mt-4 sm:mt-6 inline-flex items-center gap-2">
-            <span className="text-xs font-medium text-stone">termina em</span>
+            <span className="text-xs font-medium text-stone">Termina em</span>
             <span className="rounded-lg border border-border bg-card px-3 py-1.5 font-semibold tabular-nums text-xs sm:text-sm">
               {mmss(left)}
             </span>
@@ -136,7 +136,7 @@ export function ScarcityBar() {
           </span>
         </p>
         <Cta href="#planos" size="sm" className="shrink-0 text-xs px-3 py-1.5 sm:text-sm sm:px-4 sm:py-2">
-          garantir desconto
+          Garantir desconto
         </Cta>
       </Container>
     </div>
@@ -182,7 +182,7 @@ function ChatCard({ chat }: { chat: Chat }) {
         <div className="min-w-0 flex-1">
           <p className="truncate text-xs sm:text-sm font-semibold">{chat.name}</p>
           <p className="truncate text-[10px] sm:text-xs text-stone">
-            online · {chat.city} · {chat.role}
+            Online · {chat.city} · {chat.role}
           </p>
         </div>
         <Phone className="size-4 text-stone" aria-hidden="true" />

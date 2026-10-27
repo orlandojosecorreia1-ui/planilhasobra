@@ -49,10 +49,10 @@ export function FinalCta() {
           </p>
           <div className="mt-6 sm:mt-8 flex w-full max-w-xs sm:max-w-none sm:w-auto flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 mx-auto">
             <Cta href={CHECKOUT_FOUNDACAO} size="lg" className="w-full sm:w-auto py-3.5 sm:py-4 text-center font-bold">
-              quero a minha planilha agora
+              Quero a minha planilha agora
             </Cta>
             <Cta href="#inclui" variant="midnight" size="lg" className="w-full sm:w-auto text-center">
-              rever o que inclui
+              Rever o que inclui
             </Cta>
           </div>
         </div>
@@ -65,9 +65,9 @@ export function SalesFooter() {
   return (
     <footer className="border-t border-border py-8 sm:py-10">
       <Container className="flex flex-col items-center gap-2 text-center">
-        <p className="text-xs sm:text-sm font-medium">planilha de orçamento de obras · angola</p>
+        <p className="text-xs sm:text-sm font-medium">Planilha de Orçamento de Obras · Angola</p>
         <p className="text-[11px] sm:text-xs text-stone">
-          © 2026 · planilha entregue por download imediato · feita para Angola
+          © 2026 · Planilha entregue por download imediato · Feita para Angola
         </p>
       </Container>
     </footer>

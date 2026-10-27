@@ -12,20 +12,20 @@ const TILES: Tile[] = [
     src: dash,
     alt: "Dashboard de orçamento da obra com receitas, despesas e gráficos",
     caption: "Dashboard e cronograma da obra",
-    sub: "receitas, despesas e gráficos automáticos",
+    sub: "Receitas, despesas e gráficos automáticos",
     wide: true,
   },
   {
     src: cron,
     alt: "Cronograma da obra por especialidade",
     caption: "Cronograma por especialidade",
-    sub: "cada etapa com datas claras",
+    sub: "Cada etapa com datas claras",
   },
   {
     src: med,
     alt: "Medição e avanço de obra por especialidade",
     caption: "Medição e gestão executiva da obra",
-    sub: "avanço e valores executados",
+    sub: "Avanço e valores executados",
   },
 ];
 
@@ -102,7 +102,7 @@ export function Includes() {
           </ul>
           <div className="mt-6 sm:mt-10">
             <Cta href="#planos" size="lg" className="w-full sm:w-auto py-3.5 text-center font-bold">
-              ver os planos
+              Ver os planos
             </Cta>
           </div>
         </div>
@@ -159,7 +159,7 @@ export function SalesFeed() {
             8 planilhas vendidas nas últimas 48 horas.
           </h2>
           <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-stone">
-            pagamentos confirmados · entrega imediata no telemóvel
+            Pagamentos confirmados · Entrega imediata no telemóvel
           </p>
           <ul className="mt-4 sm:mt-6 divide-y divide-border">
             {BUYERS.map((buyer) => (
@@ -176,7 +176,7 @@ export function SalesFeed() {
                   </p>
                 </div>
                 <span className="rounded-full bg-secondary px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-signal shrink-0">
-                  pago ✓
+                  Pago ✓
                 </span>
               </li>
             ))}

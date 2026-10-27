@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 export function Container({
   className,
@@ -24,12 +25,14 @@ export function Cta({
   variant = "primary",
   size = "md",
   className,
+  onClick,
 }: {
   href: string;
   children: ReactNode;
   variant?: CtaVariant;
   size?: CtaSize;
   className?: string;
+  onClick?: () => void;
 }) {
   const base =
     "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium transition-colors duration-200";
@@ -44,8 +47,20 @@ export function Cta({
     midnight:
       "bg-midnight-chip text-on-midnight border border-midnight-line hover:bg-midnight-line",
   };
+
+  const handleClick = () => {
+    if (href.includes("standerpay.com/checkout")) {
+      trackMetaEvent("InitiateCheckout");
+    }
+    onClick?.();
+  };
+
   return (
-    <a href={href} className={cn(base, sizes[size], variants[variant], className)}>
+    <a
+      href={href}
+      onClick={handleClick}
+      className={cn(base, sizes[size], variants[variant], className)}
+    >
       {children}
     </a>
   );

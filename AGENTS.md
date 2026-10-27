@@ -18,5 +18,5 @@
   `@fontsource/source-serif-4` imported in `src/styles.css` (Tailwind v4 /
   Lightning CSS cannot `@import` remote font URLs).
 - Sales copy, prices, plan contents, buyer list, WhatsApp chats and the two
-  checkout links (`pay.vanqir.com`) live in `src/components/sales/data.ts` only,
+  checkout links (`standerpay.com`) live in `src/components/sales/data.ts` only,
   so content edits never touch layout code.
