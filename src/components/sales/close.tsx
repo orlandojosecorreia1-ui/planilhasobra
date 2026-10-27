@@ -1,5 +1,5 @@
 import { Cta, Container, SectionHead } from "./bits";
-import { CHECKOUT_FOUNDACAO, FAQS } from "./data";
+import { FAQS } from "./data";
 
 export function Faq() {
   return (
@@ -48,7 +48,7 @@ export function FinalCta() {
             Um investimento único que se paga em poucos dias.
           </p>
           <div className="mt-6 sm:mt-8 flex w-full max-w-xs sm:max-w-none sm:w-auto flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 mx-auto">
-            <Cta href={CHECKOUT_FOUNDACAO} size="lg" className="w-full sm:w-auto py-3.5 sm:py-4 text-center font-bold">
+            <Cta href="#planos" size="lg" className="w-full sm:w-auto py-3.5 sm:py-4 text-center font-bold">
               Quero a minha planilha agora
             </Cta>
             <Cta href="#inclui" variant="midnight" size="lg" className="w-full sm:w-auto text-center">

@@ -1,6 +1,6 @@
 import mockup from "@/assets/mockup-devices.png";
 import { Cta, Container, SectionHead } from "./bits";
-import { CHECKOUT_FOUNDACAO, HERO_CHECKS, STATS } from "./data";
+import { HERO_CHECKS, STATS } from "./data";
 import { useScarcityCountdown } from "./offer";
 
 const HERO_MARKS = [
@@ -102,7 +102,7 @@ export function Hero() {
         </ul>
 
         <div className="mt-6 sm:mt-8 flex w-full max-w-xs sm:max-w-none sm:w-auto flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
-          <Cta href={CHECKOUT_FOUNDACAO} size="lg" className="w-full sm:w-auto py-3.5 sm:py-4 text-center font-bold shadow-md active:scale-95">
+          <Cta href="#planos" size="lg" className="w-full sm:w-auto py-3.5 sm:py-4 text-center font-bold shadow-md active:scale-95">
             Quero a minha planilha agora
           </Cta>
           <Cta href="#inclui" variant="ghost" size="lg" className="w-full sm:w-auto text-center">
