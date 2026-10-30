@@ -1,7 +1,7 @@
 export const CHECKOUT_FOUNDACAO =
-  "https://standerpay.com/checkout/9e25851a-b814-45cb-a6d9-90c74bb2dd96";
+  "https://pay.kursinha.com/c/6ae0b64d9615c0ef5ad37034";
 export const CHECKOUT_PROFISSIONAL =
-  "https://standerpay.com/checkout/7f54b999-8b44-41ca-80f0-c92d2a717c34";
+  "https://pay.kursinha.com/c/6ae0b6a0d50de2ed4fa7c458";
 
 export const HERO_CHECKS = [
   "🧱 Planilha completa de orçamento",
@@ -287,5 +287,177 @@ export const FAQS = [
   {
     q: "Serve para pequenas reformas?",
     a: "Sim, funciona para obras de qualquer tamanho, de reforma de casa a construção completa.",
+  },
+];
+
+export type RecentPurchase = {
+  name: string;
+  city: string;
+  plan: string;
+  timeAgo: string;
+  initials: string;
+  avatarColor: string;
+};
+
+export const RECENT_PURCHASES: RecentPurchase[] = [
+  {
+    name: "Domingos Capoco",
+    city: "Luanda",
+    plan: "Plano Profissional",
+    timeAgo: "Comprou agora",
+    initials: "DC",
+    avatarColor: "bg-signal/15 text-signal",
+  },
+  {
+    name: "Manuel Caxita",
+    city: "Benguela",
+    plan: "Plano Fundação",
+    timeAgo: "Há 2 minutos",
+    initials: "MC",
+    avatarColor: "bg-coral/15 text-coral",
+  },
+  {
+    name: "João Baptista Neto",
+    city: "Luanda",
+    plan: "Plano Profissional",
+    timeAgo: "Há 4 minutos",
+    initials: "JN",
+    avatarColor: "bg-marigold/25 text-saffron",
+  },
+  {
+    name: "Celestino Gouveia",
+    city: "Huambo",
+    plan: "Plano Fundação",
+    timeAgo: "Há 6 minutos",
+    initials: "CG",
+    avatarColor: "bg-sky-wash/25 text-signal",
+  },
+  {
+    name: "Mateus Vunge",
+    city: "Lubango",
+    plan: "Plano Profissional",
+    timeAgo: "Há 9 minutos",
+    initials: "MV",
+    avatarColor: "bg-mocha/15 text-mocha",
+  },
+  {
+    name: "António Kiala",
+    city: "Cabinda",
+    plan: "Plano Fundação",
+    timeAgo: "Há 12 minutos",
+    initials: "AK",
+    avatarColor: "bg-vermillion/10 text-vermillion",
+  },
+  {
+    name: "Pedro Tchissingui",
+    city: "Luanda",
+    plan: "Plano Profissional",
+    timeAgo: "Há 15 minutos",
+    initials: "PT",
+    avatarColor: "bg-signal/15 text-signal",
+  },
+  {
+    name: "Sebastião Luvualu",
+    city: "Lobito",
+    plan: "Plano Fundação",
+    timeAgo: "Há 18 minutos",
+    initials: "SL",
+    avatarColor: "bg-coral/15 text-coral",
+  },
+  {
+    name: "Fernando Muondo",
+    city: "Malanje",
+    plan: "Plano Profissional",
+    timeAgo: "Há 21 minutos",
+    initials: "FM",
+    avatarColor: "bg-marigold/25 text-saffron",
+  },
+  {
+    name: "Carlos Samakuva",
+    city: "Luanda",
+    plan: "Plano Fundação",
+    timeAgo: "Há 24 minutos",
+    initials: "CS",
+    avatarColor: "bg-sky-wash/25 text-signal",
+  },
+  {
+    name: "Bernardo Kassoma",
+    city: "Uíge",
+    plan: "Plano Profissional",
+    timeAgo: "Há 27 minutos",
+    initials: "BK",
+    avatarColor: "bg-mocha/15 text-mocha",
+  },
+  {
+    name: "Edson Van-Dúnem",
+    city: "Luanda",
+    plan: "Plano Fundação",
+    timeAgo: "Há 30 minutos",
+    initials: "EV",
+    avatarColor: "bg-vermillion/10 text-vermillion",
+  },
+  {
+    name: "Victorino Cambinda",
+    city: "Benguela",
+    plan: "Plano Profissional",
+    timeAgo: "Há 33 minutos",
+    initials: "VC",
+    avatarColor: "bg-signal/15 text-signal",
+  },
+  {
+    name: "José Miguel Tchiwana",
+    city: "Namibe",
+    plan: "Plano Fundação",
+    timeAgo: "Há 36 minutos",
+    initials: "JT",
+    avatarColor: "bg-coral/15 text-coral",
+  },
+  {
+    name: "Paulino Katumbela",
+    city: "Huambo",
+    plan: "Plano Profissional",
+    timeAgo: "Há 39 minutos",
+    initials: "PK",
+    avatarColor: "bg-marigold/25 text-saffron",
+  },
+  {
+    name: "Valdemar Quipungo",
+    city: "Soyo",
+    plan: "Plano Fundação",
+    timeAgo: "Há 43 minutos",
+    initials: "VQ",
+    avatarColor: "bg-sky-wash/25 text-signal",
+  },
+  {
+    name: "Álvaro Dala",
+    city: "Luanda",
+    plan: "Plano Profissional",
+    timeAgo: "Há 47 minutos",
+    initials: "AD",
+    avatarColor: "bg-mocha/15 text-mocha",
+  },
+  {
+    name: "Nelson Bunga",
+    city: "Lubango",
+    plan: "Plano Fundação",
+    timeAgo: "Há 51 minutos",
+    initials: "NB",
+    avatarColor: "bg-vermillion/10 text-vermillion",
+  },
+  {
+    name: "Helder Chicoti",
+    city: "Luanda",
+    plan: "Plano Profissional",
+    timeAgo: "Há 55 minutos",
+    initials: "HC",
+    avatarColor: "bg-signal/15 text-signal",
+  },
+  {
+    name: "Daniel Somakau",
+    city: "Benguela",
+    plan: "Plano Profissional",
+    timeAgo: "Há 59 minutos",
+    initials: "DS",
+    avatarColor: "bg-coral/15 text-coral",
   },
 ];

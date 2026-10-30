@@ -2,6 +2,7 @@ import { SalesNav, Hero, Stats } from "./top";
 import { Inside, Includes, Professionals, SalesFeed } from "./inside";
 import { Pricing, Chats } from "./offer";
 import { Faq, FinalCta, SalesFooter } from "./close";
+import { PurchaseNotification } from "./purchase-notification";
 
 export function SalesPage() {
   return (
@@ -20,6 +21,7 @@ export function SalesPage() {
         <FinalCta />
       </main>
       <SalesFooter />
+      <PurchaseNotification />
     </div>
   );
 }

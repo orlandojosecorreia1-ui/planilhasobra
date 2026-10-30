@@ -216,14 +216,15 @@ export function Chats() {
     if (!track) return;
     let paused = false;
     let resumeTimer = 0;
+
     const pauseWhileHovering = () => {
       paused = true;
       window.clearTimeout(resumeTimer);
     };
-    const pauseFor = (ms: number) => {
+    const pauseFor = (ms: number | Event) => {
       paused = true;
       window.clearTimeout(resumeTimer);
-      resumeTimer = window.setTimeout(() => (paused = false), ms);
+      const delay = typeof ms === "number" ? ms : CAROUSEL_RESUME_MS; resumeTimer = window.setTimeout(() => (paused = false), delay);
     };
     const id = window.setInterval(() => {
       if (paused || document.hidden) return;
@@ -238,9 +239,9 @@ export function Chats() {
       }
     }, CAROUSEL_STEP_MS);
     track.addEventListener("pointerenter", pauseWhileHovering);
-    track.addEventListener("pointerleave", () => pauseFor(CAROUSEL_RESUME_MS));
-    track.addEventListener("pointerdown", () => pauseFor(CAROUSEL_RESUME_MS));
-    track.addEventListener("wheel", () => pauseFor(CAROUSEL_RESUME_MS), { passive: true });
+    track.addEventListener("pointerleave", pauseFor);
+    track.addEventListener("pointerdown", pauseFor);
+    track.addEventListener("wheel", pauseFor, { passive: true });
     return () => {
       window.clearInterval(id);
       window.clearTimeout(resumeTimer);

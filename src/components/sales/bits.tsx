@@ -49,7 +49,7 @@ export function Cta({
   };
 
   const handleClick = () => {
-    if (href.includes("standerpay.com/checkout")) {
+    if (href.includes("pay.kursinha.com") || href.includes("standerpay.com/checkout")) {
       trackMetaEvent("InitiateCheckout");
     }
     onClick?.();
